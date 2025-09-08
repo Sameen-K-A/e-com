@@ -41,8 +41,8 @@ export default function ProductCard({ product }: ProductCardProps) {
           />
         </div>
 
-        <div className="p-4 space-y-2">
-          <h3 className="font-semibold text-lg line-clamp-1 leading-tight">
+        <div className="p-3 md:p-4 space-y-2">
+          <h3 className="font-semibold text-sm md:text-lg line-clamp-1 leading-tight">
             {product.name}
           </h3>
 

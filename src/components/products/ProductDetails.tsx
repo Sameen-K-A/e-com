@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ChevronRight, Tag } from 'lucide-react';
+import { FaCartPlus, FaBagShopping } from "react-icons/fa6";
 import { cn } from "@/lib/utils";
 import { ROUTE } from '@/constants/routes';
 import { useParams, useRouter } from 'next/navigation';
@@ -28,7 +29,7 @@ export default function ProductOverview() {
     <div className="min-h-[100dvh]">
       <div className="container mx-auto p-4 md:p-8">
         <div className="flex items-center gap-2 cursor-default mb-4">
-          <span className="text-muted-foreground cursor-pointer" onClick={() => router.push(ROUTE.ALL_PRODUCTS)}>Products</span>
+          <span className="text-muted-foreground cursor-pointer" onClick={() => router.push(ROUTE.ALL_PRODUCTS)}>All Products</span>
           <span className="text-muted-foreground"><ChevronRight size={12} /></span>
           <span className="text-foreground font-medium">{productData.id}</span>
         </div>
@@ -101,15 +102,17 @@ export default function ProductOverview() {
             </p>
             <div className="space-y-2 pt-4 hidden md:block">
               <Button variant="outline" size="lg" className="w-full">
-                Add to Cart
+                <FaCartPlus />
+                <span>Add to Cart</span>
               </Button>
               <Button size="lg" className="w-full">
-                Buy Now
+                <FaBagShopping />
+                <span>Buy Now</span>
               </Button>
             </div>
             <Accordion type="single" collapsible defaultValue="features" className="w-full space-y-2 pt-4">
               <AccordionItem value="features">
-                <AccordionTrigger className="text-primary font-medium">
+                <AccordionTrigger className="text-primary text-lg font-medium">
                   Features
                 </AccordionTrigger>
                 <AccordionContent className="space-y-3">
@@ -128,8 +131,14 @@ export default function ProductOverview() {
 
       {/* Mobile/Tablet Fixed Bottom Buttons */}
       <div className="md:hidden fixed bottom-0 left-0 right-0 border-t px-4 py-2 flex gap-2 bg-background">
-        <Button variant="outline" className="flex-1">Add to Cart</Button>
-        <Button className="flex-1">Buy Now</Button>
+        <Button variant="outline" className="flex-1">
+          <FaCartPlus />
+          <span>Add to Cart</span>
+        </Button>
+        <Button className="flex-1">
+          <FaBagShopping />
+          <span>Buy Now</span>
+        </Button>
       </div>
     </div>
   );
