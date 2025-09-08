@@ -70,8 +70,16 @@ export default function ProductOverview() {
             <h1 className="text-4xl font-bold text-foreground">
               {productData.name}
             </h1>
-            <div className="text-2xl font-semibold text-foreground">
-              ₹{productData.originalPrice.toFixed(2)}
+            <div className="flex items-center gap-2">
+              <div className="text-2xl font-semibold text-green-600">
+                ₹{(productData.originalPrice * (1 - productData.offerPercentage / 100)).toFixed(2)}
+              </div>
+              <div className="text-sm text-muted-foreground line-through">
+                ₹{productData.originalPrice.toFixed(2)}
+              </div>
+              <div className="text-sm font-medium text-destructive">
+                -{productData.offerPercentage}%
+              </div>
             </div>
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-1">
