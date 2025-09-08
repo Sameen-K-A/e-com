@@ -8,6 +8,9 @@ export interface IProduct {
   stocks: number;
   images: string[];
   isPublished: boolean;
+  rating: number;
+  ratingCount: number;
+  features: string[];
 };
 
 export interface ICategory {

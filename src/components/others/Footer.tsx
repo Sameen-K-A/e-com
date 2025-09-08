@@ -32,7 +32,7 @@ const defaultSocialLinks = [
 
 export const Footer = () => {
   return (
-    <footer className="py-10 px-4 border-t">
+    <footer className="py-10 px-4 md:px-8 border-t">
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row w-full justify-between gap-10">
           <div className="flex w-full items-center md:items-start flex-col gap-4">
@@ -71,7 +71,7 @@ export const Footer = () => {
             ))}
           </div>
         </div>
-        <div className="mt-10 flex flex-col items-center w-full gap-2 text-xs font-medium text-muted-foreground">
+        <div className="my-10 flex flex-col items-center w-full gap-2 text-xs font-medium text-muted-foreground">
           <p>© ${new Date().getFullYear()} E-com All rights reserved.</p>
           <ul className="flex justify-center gap-4">
             <li className="hover:text-primary hover:underline hover:underline-offset-2">
