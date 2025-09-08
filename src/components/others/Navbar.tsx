@@ -32,7 +32,7 @@ export const Navbar = () => {
         data-state={menuState && 'active'}
         className="fixed left-1/2 -translate-x-1/2 z-20 px-2 container mx-auto"
       >
-        <div className={cn('mx-auto mt-2 max-w-8xl px-4 md:px-8 transition-all duration-300', isScrolled && 'bg-background/50 max-w-6xl rounded-2xl border backdrop-blur-lg')}>
+        <div className={cn('mx-auto bg-background pt-2 max-w-8xl px-4 md:px-8 transition-all duration-300', isScrolled && 'mt-2 pt-0 bg-background/50 max-w-6xl rounded-2xl border backdrop-blur-lg')}>
           <div className="relative flex flex-wrap items-center justify-between gap-4 lg:gap-0 py-2">
 
             <div className="flex w-full justify-between lg:w-auto">

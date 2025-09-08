@@ -7,15 +7,22 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { ChevronRight, Tag } from 'lucide-react';
 import { cn } from "@/lib/utils";
 import { ROUTE } from '@/constants/routes';
-import { useRouter } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import { mockProducts } from '@/constants/mockProducts';
 import RatingStars from '../others/RatingStars';
 import Image from 'next/image';
+import { IProduct } from '@/types/general';
 
 export default function ProductOverview() {
+  const params = useParams();
+  const productId = params.id;
   const router = useRouter();
-  const productData = mockProducts[0]
   const [selectedImage, setSelectedImage] = useState(0);
+  const productData: IProduct | undefined = mockProducts.find((product: IProduct) => product.id === productId);
+
+  if (!productData) {
+    return
+  }
 
   return (
     <div className="min-h-[100dvh]">
@@ -118,6 +125,7 @@ export default function ProductOverview() {
           </div>
         </div>
       </div>
+
       {/* Mobile/Tablet Fixed Bottom Buttons */}
       <div className="md:hidden fixed bottom-0 left-0 right-0 border-t px-4 py-2 flex gap-2 bg-background">
         <Button variant="outline" className="flex-1">Add to Cart</Button>
