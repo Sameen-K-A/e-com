@@ -9,20 +9,21 @@ import { PopoverClose } from "@radix-ui/react-popover";
 
 interface FilterState {
   categories: string[];
-  sortBy: 'name' | 'price';
-  sortOrder: 'asc' | 'desc';
+  sortBy: 'name' | 'price' | 'rating' | 'oldest' | 'newest';
 }
 
 const SORT_OPTIONS: { value: FilterState["sortBy"]; label: string }[] = [
   { value: 'name', label: 'Name' },
   { value: 'price', label: 'Price' },
+  { value: 'rating', label: 'Rating' },
+  { value: 'oldest', label: 'Oldest to Newest' },
+  { value: 'newest', label: 'Newest to Oldest' },
 ];
 
 export const MobileFilterSection = () => {
   const [filters, setFilters] = useState<FilterState>({
     categories: ["all"],
-    sortBy: "name",
-    sortOrder: "asc",
+    sortBy: "name"
   });
 
   const handleFilterChange = (newFilters: Partial<FilterState>) => {
@@ -49,7 +50,6 @@ export const MobileFilterSection = () => {
     const defaultFilters: FilterState = {
       categories: ["all"],
       sortBy: 'name',
-      sortOrder: 'asc',
     };
     setFilters(defaultFilters);
   };
@@ -92,23 +92,7 @@ export const MobileFilterSection = () => {
           <div className="space-y-1">
             <span className="text-sm font-medium">Sort by</span>
 
-            <div className="grid grid-cols-4 gap-1">
-              <Button
-                variant={filters.sortOrder === 'asc' ? "default" : "outline"}
-                size="sm"
-                onClick={() => handleFilterChange({ sortOrder: 'asc' })}
-                className="text-xs h-7"
-              >
-                A→Z
-              </Button>
-              <Button
-                variant={filters.sortOrder === 'desc' ? "default" : "outline"}
-                size="sm"
-                onClick={() => handleFilterChange({ sortOrder: 'desc' })}
-                className="text-xs h-7"
-              >
-                Z→A
-              </Button>
+            <div className="flex flex-wrap gap-1">
               {SORT_OPTIONS.map((option) => (
                 <Button
                   key={option.value}
