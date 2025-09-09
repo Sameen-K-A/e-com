@@ -71,7 +71,7 @@ export const Footer = () => {
             ))}
           </div>
         </div>
-        <div className="my-10 flex flex-col items-center w-full gap-2 text-xs font-medium text-muted-foreground">
+        <div className="mt-10 mb-10 md:mb-0 flex flex-col items-center w-full gap-2 text-xs font-medium text-muted-foreground">
           <p>© ${new Date().getFullYear()} E-com All rights reserved.</p>
           <ul className="flex justify-center gap-4">
             <li className="hover:text-primary hover:underline hover:underline-offset-2">
