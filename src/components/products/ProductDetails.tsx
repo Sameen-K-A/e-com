@@ -13,6 +13,7 @@ import { mockProducts } from '@/constants/mockProducts';
 import RatingStars from '../others/RatingStars';
 import Image from 'next/image';
 import { IProduct } from '@/types/general';
+import NoProducts from './NoProducts';
 
 export default function ProductOverview() {
   const params = useParams();
@@ -22,7 +23,17 @@ export default function ProductOverview() {
   const productData: IProduct | undefined = mockProducts.find((product: IProduct) => product.id === productId);
 
   if (!productData) {
-    return
+    return (
+      <div className='min-h-[90dvh] flex justify-center items-center'>
+        <NoProducts
+          showButton={true}
+          title='Product Not Found'
+          message="The product you are looking for does not exist or may have been removed."
+          buttonLabel="Back to All Products"
+          redirectTo={ROUTE.ALL_PRODUCTS}
+        />
+      </div>
+    )
   }
 
   return (
