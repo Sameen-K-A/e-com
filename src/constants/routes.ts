@@ -7,4 +7,5 @@ export const ROUTE = {
   ABOUT: "/about",
   ACCOUNTS: "/accounts",
   ORDERS: "/orders",
+  ORDER_DETAILS: (orderId: string) => `orders/${orderId}`,
 };

@@ -18,3 +18,28 @@ export interface ICategory {
   name: string;
   productCount: number;
 };
+
+export interface IOrder {
+  id: string;
+  products: IOrderItem[];
+  dateOfOrder: string;
+  fulfillmentStatus: 'Pending' | 'Processing' | 'Shipped' | 'Delivered' | 'Cancelled';
+  paymentStatus: 'pending' | 'complete';
+  shippingAddress: IOrderAddress;
+  total: number;
+};
+
+export interface IOrderItem {
+  product: IProduct;
+  quantity: number;
+};
+
+export interface IOrderAddress {
+  name: string;
+  houseName: string;
+  district: string;
+  state: string;
+  country: string;
+  pincode: string;
+  phoneNumber: string;
+}

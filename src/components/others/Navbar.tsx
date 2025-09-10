@@ -6,6 +6,8 @@ import { cn } from '@/lib/utils'
 import { Button } from '../ui/button'
 import { ROUTE } from '@/constants/routes'
 import { useEffect, useState } from 'react'
+import { Dialog, DialogTrigger } from '../ui/dialog'
+import LoginDialogContent from './LoginDialog'
 
 const menuItems = [
   { name: 'Home', href: ROUTE.HOME },
@@ -85,9 +87,14 @@ export const Navbar = () => {
               </div>
 
               <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-2 sm:space-y-0 md:w-fit">
-                <Button size="sm">
-                  <span>Login</span>
-                </Button>
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button size="sm">
+                      <span>Login</span>
+                    </Button>
+                  </DialogTrigger>
+                  <LoginDialogContent />
+                </Dialog>
               </div>
             </div>
           </div>
