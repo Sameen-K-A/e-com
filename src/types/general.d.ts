@@ -16,7 +16,7 @@ export interface IProduct {
 export interface ICategory {
   id: string;
   name: string;
-  productCount: number;
+  image: string;
 };
 
 export interface IOrder {

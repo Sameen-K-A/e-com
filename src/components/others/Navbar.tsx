@@ -12,8 +12,8 @@ import LoginDialogContent from './LoginDialog'
 const menuItems = [
   { name: 'Home', href: ROUTE.HOME },
   { name: 'All Products', href: ROUTE.ALL_PRODUCTS },
+  { name: 'Categories', href: ROUTE.CATEGORIES },
   { name: 'Cart', href: ROUTE.CART },
-  { name: 'About', href: ROUTE.ABOUT },
 ]
 
 export const Navbar = () => {

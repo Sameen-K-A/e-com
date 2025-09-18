@@ -3,6 +3,7 @@ export const ROUTE = {
   HOME: "/home",
   ALL_PRODUCTS: "/all-products",
   PRODUCT_DETAILS: (prodctId: string) => `product-details/${prodctId}`,
+  CATEGORIES: "/categories",
   CART: "/cart",
   ABOUT: "/about",
   ACCOUNTS: "/accounts",
